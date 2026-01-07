@@ -4,6 +4,14 @@
  * @param {string} [param="asc"] param - the sorting type "asc" or "desc"
  * @returns {string[]}
  */
-export function sortStrings(arr, param = 'asc') {
+export function sortStrings(arr, param = "asc") {
+  if (param !== "asc" && param !== "desc") return arr;
 
+  const sortedArr = arr.toSorted((a, b) =>
+    a.localeCompare(b, ["ru", "en"], {
+      caseFirst: "upper",
+    })
+  );
+
+  return param === "asc" ? sortedArr : sortedArr.reverse();
 }
