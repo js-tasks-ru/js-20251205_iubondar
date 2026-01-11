@@ -7,7 +7,8 @@
 export function sortStrings(arr, param = "asc") {
   if (param !== "asc" && param !== "desc") return arr;
 
-  const sortedArr = arr.toSorted((a, b) =>
+  // Создаем копию массива и сортируем его
+  const sortedArr = [...arr].sort((a, b) =>
     a.localeCompare(b, ["ru", "en"], {
       caseFirst: "upper",
     })
