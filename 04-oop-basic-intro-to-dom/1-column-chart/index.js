@@ -94,5 +94,10 @@ export default class ColumnChart {
   destroy() {
     this.remove();
     this.element = null;
+    this.#data = null;
+    this.#label = null;
+    this.#link = null;
+    this.#value = null;
+    this.#formatHeading = null;
   }
 }
